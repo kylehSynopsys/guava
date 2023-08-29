@@ -17,6 +17,6 @@ steps:
     bridge_polaris_serverUrl: 'https://poc.polaris.synopsys.com'
     bridge_polaris_accessToken: 's4jpgckfat47f3dcaebrc486lj0dg2gl9t8k9jcf36s31ebbelqv3m17ccutoc1l02r204eq8ai6q'
     bridge_polaris_application_name: 'kyleh'
-    bridge_polaris_project_name: 'ADO Test'
+    bridge_polaris_project_name: 'Guava No YAML'
     bridge_polaris_assessment_types: 'SAST,SCA'
 
