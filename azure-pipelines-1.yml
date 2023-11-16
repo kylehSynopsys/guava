@@ -17,5 +17,9 @@ steps:
     bridge_polaris_serverUrl: 'https://poc.polaris.synopsys.com'
     bridge_polaris_accessToken: '$(POLARISTOKEN)'
     bridge_polaris_application_name: 'kyleh'
-    bridge_polaris_project_name: 'ADO Test'
+    bridge_polaris_project_name: 'ADO Test1'
     bridge_polaris_assessment_types: 'SAST,SCA'
+- task: Bash@3
+  inputs:
+    filePath: '/AzureBoardsScript/polaris_azure_ci.pi'
+    arguments: '--config "polaris-azure.conf" --polaris-application-name "kyleh" --polaris-project-name "AzureIssueTest" --polaris-branch-name "2" --polaris-severities-filter "''critical'',''high'',''medium'',''low'',''info''" --azure-project-name "PolarisTickets" --azure-iteration-path "iteration 2" --azure-area-path "area path test"'
