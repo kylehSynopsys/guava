@@ -17,6 +17,7 @@ resources:
 steps:
 - script: mvn --version
 - script: ls
+- script: rm /home/vsts/work/1/s/.bridge/Coverity Capture/idir
 - task: SynopsysSecurityScan@1
   inputs:
     scanType: 'polaris'
