@@ -10,10 +10,10 @@ pool:
   vmImage: ubuntu-latest
 resources:
   repositories:
-    - repository: Implementations
+    - repository: AzureBoardsScript
       ref: main
       type: git
-      name: AzureBoardsScript
+      name: Implementations
 steps:
 - script: mvn --version
 #- task: SynopsysSecurityScan@1
