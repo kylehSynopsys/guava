@@ -15,18 +15,15 @@ resources:
       type: git
       name: Implementations
 steps:
-- script: mvn --version
-- script: ls
-- script: rm /home/vsts/work/1/s/.bridge/Coverity Capture/idir
 - task: SynopsysSecurityScan@1
   inputs:
     scanType: 'polaris'
     bridge_polaris_serverUrl: 'https://poc.polaris.synopsys.com'
-    bridge_polaris_accessToken: $(PolarisToken)
+    bridge_polaris_accessToken: '$(PolarisToken)'
     bridge_polaris_application_name: 'kyleh'
     bridge_polaris_project_name: 'AzureIssueTest'
     bridge_polaris_assessment_types: 'SAST,SCA'
-    bridge_polaris_branch_name: $(Build.SourceBranch)
+    bridge_polaris_branch_name: '$(Build.SourceBranch)'
 - checkout: AzureBoardsScript
 
 - task: PythonScript@0
