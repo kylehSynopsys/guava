@@ -22,7 +22,6 @@ steps:
 #    bridge_polaris_branch_name: '2'
 - script: pwd
 - script: ls
-- 
 - task: Bash@3
   inputs:
     filePath: 'src/AzureBoardsScript/polaris_azure_ci.pi'
