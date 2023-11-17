@@ -8,7 +8,12 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
+resources:
+  repositories:
+    - repository: Implementations
+      ref: main
+      type: git
+      name: AzureBoardsScript
 steps:
 - script: mvn --version
 #- task: SynopsysSecurityScan@1
@@ -22,6 +27,7 @@ steps:
 #    bridge_polaris_branch_name: '2'
 - script: pwd
 - script: ls
+
 - task: Bash@3
   inputs:
     filePath: '$(Build.SourcesDirectory)/Implementations/AzureBoardsScript/polaris_azure_ci.py'
