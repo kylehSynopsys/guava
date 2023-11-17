@@ -11,16 +11,16 @@ pool:
 
 steps:
 - script: mvn --version
-- task: SynopsysSecurityScan@1
-  inputs:
-    scanType: 'polaris'
-    bridge_polaris_serverUrl: 'https://poc.polaris.synopsys.com'
-    bridge_polaris_accessToken: $(PolarisToken)
-    bridge_polaris_application_name: 'kyleh'
-    bridge_polaris_project_name: 'AzureIssueTest'
-    bridge_polaris_assessment_types: 'SAST,SCA'
-    bridge_polaris_branch_name: '2'
+#- task: SynopsysSecurityScan@1
+#  inputs:
+#    scanType: 'polaris'
+#    bridge_polaris_serverUrl: 'https://poc.polaris.synopsys.com'
+#    bridge_polaris_accessToken: $(PolarisToken)
+#    bridge_polaris_application_name: 'kyleh'
+#    bridge_polaris_project_name: 'AzureIssueTest'
+#    bridge_polaris_assessment_types: 'SAST,SCA'
+#    bridge_polaris_branch_name: '2'
 - task: Bash@3
   inputs:
-    filePath: '/AzureBoardsScript/polaris_azure_ci.pi'
+    filePath: './AzureBoardsScript/polaris_azure_ci.pi'
     arguments: '--config "polaris-azure.conf" --polaris-application-name "kyleh" --polaris-project-name "AzureIssueTest" --polaris-branch-name Build.SourceBranch --polaris-severities-filter "''critical'',''high'',''medium'',''low'',''info''" --azure-project-name "PolarisTickets" --azure-iteration-path "iteration 2" --azure-area-path "area path test"'
