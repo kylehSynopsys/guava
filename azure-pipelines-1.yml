@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 resources:
   repositories:
-    - repository: AzureBoardsScript
+    - repository: Implementations
       ref: main
       type: git
       name: Implementations
