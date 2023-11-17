@@ -20,6 +20,8 @@ steps:
 #    bridge_polaris_project_name: 'AzureIssueTest'
 #    bridge_polaris_assessment_types: 'SAST,SCA'
 #    bridge_polaris_branch_name: '2'
+- script: pwd
+- script: ls
 - task: Bash@3
   inputs:
     filePath: '$(Build.SourcesDirectory)/Implementations/AzureBoardsScript/polaris_azure_ci.pi'
