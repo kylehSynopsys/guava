@@ -13,7 +13,7 @@ resources:
     - repository: AzureBoardsScript
       ref: main
       type: git
-      name: Implementations
+      name: AzureBoardsScript
 steps:
 - script: mvn --version
 #- task: SynopsysSecurityScan@1
