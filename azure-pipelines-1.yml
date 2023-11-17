@@ -24,5 +24,5 @@ steps:
 - script: ls
 - task: Bash@3
   inputs:
-    filePath: '$(Build.SourcesDirectory)/AzureBoardsScript/polaris_azure_ci.py'
+    filePath: '$(Build.SourcesDirectory)/Implementations/AzureBoardsScript/polaris_azure_ci.py'
     arguments: '--config "polaris-azure.conf" --polaris-application-name "kyleh" --polaris-project-name "AzureIssueTest" --polaris-branch-name Build.SourceBranch --polaris-severities-filter "''critical'',''high'',''medium'',''low'',''info''" --azure-project-name "PolarisTickets" --azure-iteration-path "iteration 2" --azure-area-path "area path test"'
