@@ -17,6 +17,8 @@ resources:
 steps:
 - checkout: self
 - script: ls
+- script: cd guava
+- script: ls
 - task: SynopsysSecurityScan@1
   inputs:
     scanType: 'polaris'
