@@ -16,6 +16,7 @@ resources:
       name: Implementations
 steps:
 - checkout: self
+- script: ls
 - task: SynopsysSecurityScan@1
   inputs:
     scanType: 'polaris'
