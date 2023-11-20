@@ -15,9 +15,11 @@ resources:
       type: git
       name: Implementations
 steps:
-- checkout: self
+- script: pwd
 - script: ls
+- checkout: self
 - script: cd guava
+- script: pwd
 - script: ls
 - task: SynopsysSecurityScan@1
   inputs:
