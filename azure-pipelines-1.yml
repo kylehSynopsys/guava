@@ -19,27 +19,26 @@ resources:
 steps:
 - checkout: self
 - bash: |
-    cd guava
     curl -fLsS -o bridge.zip $BRIDGECLI_LINUX64 && unzip -qo -d $(Agent.TempDirectory) bridge.zip && rm -f bridge.zip
     $(Agent.TempDirectory)/synopsys-bridge --verbose --stage polaris \
       polaris.assessment.types='SAST' \
       polaris.application.name='kyleh' \
       polaris.project.name='ADO-BashTest' \
-      polaris.branch.name='$(Build.SourceBranchName)'
+      polaris.branch.name='$(Build.SourceBranchName)' \
+      project.directory=guava
 - bash: |
-    cd guava
     $(Agent.TempDirectory)/synopsys-bridge --verbose --stage polaris \
       polaris.assessment.types='SCA' \
       polaris.application.name='kyleh' \
       polaris.project.name='ADO-BashTest' \
-      polaris.branch.name='$(Build.SourceBranchName)'
+      polaris.branch.name='$(Build.SourceBranchName)' \
+      project.directory=guava
 - checkout: AzureBoardsScript
 - task: CmdLine@2
   inputs:
     script: |
      cd Implementations/AzureBoardsScript
      python polaris_azure_ci.py --config "polaris-azure.conf" --polaris-application-name "kyleh" --polaris-project-name "ADO-BashTest" --polaris-branch-name $(Build.SourceBranchName) --polaris-severities-filter "''''critical'''',''''high'''',''''medium'''',''''low'''',''''info''''" --azure-project-name "PolarisTickets" --azure-iteration-path "iteration 2" --azure-area-path "area path test"
-     cat logs/synopsys-azure.log
 - task: CmdLine@2
   inputs:
     script: 'cat Implementations/AzureBoardsScript/logs/synopsys-azure.log'
