@@ -19,9 +19,6 @@ resources:
 steps:
 - checkout: self
 - bash: |
-    ls
-    java -version
-    mvn -version
     cd guava
     curl -fLsS -o bridge.zip $BRIDGECLI_LINUX64 && unzip -qo -d $(Agent.TempDirectory) bridge.zip && rm -f bridge.zip
     $(Agent.TempDirectory)/synopsys-bridge --verbose --stage polaris \
@@ -29,6 +26,8 @@ steps:
       polaris.application.name='kyleh' \
       polaris.project.name='ADO-BashTest' \
       polaris.branch.name='$(Build.SourceBranchName)'
+- bash: |
+    cd guava
     $(Agent.TempDirectory)/synopsys-bridge --verbose --stage polaris \
       polaris.assessment.types='SCA' \
       polaris.application.name='kyleh' \
