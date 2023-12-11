@@ -28,9 +28,8 @@ steps:
       polaris.assessment.types='SAST,SCA' \
       polaris.application.name='kyleh' \
       polaris.project.name='ADO-BashTest' \
-      bridge_polaris_branch_name: '$(Build.SourceBranchName)'
+      polaris.branch.name='$(Build.SourceBranchName)'
 - checkout: AzureBoardsScript
-
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
